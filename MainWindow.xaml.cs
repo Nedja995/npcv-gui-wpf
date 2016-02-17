@@ -27,7 +27,8 @@ namespace ProjectVSNpcvGuiWpf
 
         private void loadButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NPGui.NamedPipe np = new NPGui.NamedPipe();
+            np.Run();
         }
     }
 }
