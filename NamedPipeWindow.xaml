@@ -1,16 +1,17 @@
-﻿<Window x:Class="ProjectVSNpcvGuiWpf.MainWindow"
+﻿<Window x:Class="NPGui.NamedPipeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjectVSNpcvGuiWpf"
+        xmlns:local="clr-namespace:NPGui"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Image x:Name="MainImg" HorizontalAlignment="Left" Height="299" Margin="10,10,0,0" VerticalAlignment="Top" Width="281" Source="D:\Projects\CompVision\npcv2\samples\data\input\lena.jpg"/>
         <Button x:Name="button" HorizontalAlignment="Left" Margin="346,33,0,0" VerticalAlignment="Top" Width="123" Height="36">
-            <Button x:Name="loadButton" Content="Button" Width="75" Click="loadButton_Click"/>
+            <Button x:Name="loadButton" Content="Load from Pipe" Width="93" Click="loadButton_Click"/>
         </Button>
+        <Button x:Name="processButton" Content="Process" Click="processButton_Click" HorizontalAlignment="Left" Margin="346,96,0,0" VerticalAlignment="Top" Width="123" Height="35"/>
 
     </Grid>
 </Window>

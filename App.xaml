@@ -1,8 +1,8 @@
-﻿<Application x:Class="ProjectVSNpcvGuiWpf.App"
+﻿<Application x:Class="NPGui.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ProjectVSNpcvGuiWpf"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:NPGui"
+             StartupUri="NamedPipeWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>

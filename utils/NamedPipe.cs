@@ -74,19 +74,20 @@ namespace NPGui
                     int cbRequest = bRequest.Length, cbRead;
 
                     cbRead = _pipeServer.Read(bRequest, 0, cbRequest);
+
+                    // SAVE TO ARRAY
                     image.Add(bRequest);
+
                     // Unicode-encode the received byte array and trim all the 
                     // '\0' characters at the end.
                     message = Encoding.Unicode.GetString(bRequest).TrimEnd('\0');
                   //  Console.WriteLine("Receive {0} bytes from client: \"{1}\"",
                   //      cbRead, message);
-                }
-                while (!_pipeServer.IsMessageComplete);
+                } while (!_pipeServer.IsMessageComplete);
 
                 // 
                 // Send a response from server to client.
                 // 
-
                 message = ResponseMessage;
                 byte[] bResponse = Encoding.Unicode.GetBytes(message);
                 int cbResponse = bResponse.Length;

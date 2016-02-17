@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjectVSNpcvGuiWpf
+namespace NPGui
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NamedPipeWindow : Window
     {
-        public MainWindow()
+        public NamedPipeWindow()
         {
             InitializeComponent();
         }
@@ -29,6 +29,7 @@ namespace ProjectVSNpcvGuiWpf
         private void loadButton_Click(object sender, RoutedEventArgs e)
         {
             NPGui.NamedPipe np = new NPGui.NamedPipe();
+
             byte[] by = np.Run();
 
             MemoryStream fs = new MemoryStream(by);
@@ -50,6 +51,7 @@ namespace ProjectVSNpcvGuiWpf
             bitmapImage.EndInit();
             return bitmapImage;
         }
+
         public byte[] getJPGFromImageControl(ImageSource imageC)
         {
             MemoryStream memStream = new MemoryStream();
@@ -59,5 +61,14 @@ namespace ProjectVSNpcvGuiWpf
             return memStream.ToArray();
         }
 
+        /// <summary>
+        /// Send image to npcv and then get processed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void processButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

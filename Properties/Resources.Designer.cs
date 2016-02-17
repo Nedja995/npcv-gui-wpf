@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectVSNpcvGuiWpf.Properties
+namespace NPGui.Properties
 {
 
 
