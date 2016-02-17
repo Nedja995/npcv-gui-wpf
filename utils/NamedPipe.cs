@@ -12,8 +12,10 @@ namespace NPGui
     public class NamedPipe
     {
 
-        public void Run()
+        public byte[] Run()
         {
+            IList<byte[]> image = new List<byte[]>();
+
             _pipeServer = null;
             try
             {
@@ -64,7 +66,7 @@ namespace NPGui
                 // more about the difference from the article:
                 // http://go.microsoft.com/?linkid=9721786.
                 // 
-
+                
                 string message;
                 do
                 {
@@ -72,12 +74,12 @@ namespace NPGui
                     int cbRequest = bRequest.Length, cbRead;
 
                     cbRead = _pipeServer.Read(bRequest, 0, cbRequest);
-
+                    image.Add(bRequest);
                     // Unicode-encode the received byte array and trim all the 
                     // '\0' characters at the end.
                     message = Encoding.Unicode.GetString(bRequest).TrimEnd('\0');
-                    Console.WriteLine("Receive {0} bytes from client: \"{1}\"",
-                        cbRead, message);
+                  //  Console.WriteLine("Receive {0} bytes from client: \"{1}\"",
+                  //      cbRead, message);
                 }
                 while (!_pipeServer.IsMessageComplete);
 
@@ -111,6 +113,17 @@ namespace NPGui
                     _pipeServer = null;
                 }
             }
+
+            byte[] ret = new byte[image.Count * 1024];
+            for(int i = 0;i < image.Count; i++)
+            {
+                for(int j = 0; j < 1024; j++)
+                {
+                    ret[i * 1024 + j] = image[i][j];
+                }
+            }
+            return ret;
+
         }
 
         protected const int _bufferSize = 1024;

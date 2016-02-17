@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="299" Margin="10,10,0,0" VerticalAlignment="Top" Width="281" Source="D:\Projects\CompVision\npcv2\samples\data\input\lena.jpg"/>
+        <Image x:Name="MainImg" HorizontalAlignment="Left" Height="299" Margin="10,10,0,0" VerticalAlignment="Top" Width="281" Source="D:\Projects\CompVision\npcv2\samples\data\input\lena.jpg"/>
         <Button x:Name="button" HorizontalAlignment="Left" Margin="346,33,0,0" VerticalAlignment="Top" Width="123" Height="36">
             <Button x:Name="loadButton" Content="Button" Width="75" Click="loadButton_Click"/>
         </Button>
