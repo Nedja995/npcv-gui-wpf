@@ -4,14 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NPGui"
+        xmlns:dc="clr-namespace:NPGui.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="486" Width="923"
+        ResizeMode="CanResize">
     <Grid>
-        <Image x:Name="MainImg" HorizontalAlignment="Left" Height="299" Margin="10,10,0,0" VerticalAlignment="Top" Width="281" Source="D:\Projects\CompVision\npcv2\samples\data\input\lena.jpg"/>
-        <Button x:Name="button" HorizontalAlignment="Left" Margin="346,33,0,0" VerticalAlignment="Top" Width="123" Height="36">
-            <Button x:Name="loadButton" Content="Load from Pipe" Width="93" Click="loadButton_Click"/>
-        </Button>
+        <Button x:Name="loadButton" Content="Load from Pipe" Click="loadButton_Click" HorizontalAlignment="Left" Margin="346,33,0,0" VerticalAlignment="Top" Width="123" Height="36" />
         <Button x:Name="processButton" Content="Process" Click="processButton_Click" HorizontalAlignment="Left" Margin="346,96,0,0" VerticalAlignment="Top" Width="123" Height="35"/>
+        <TabControl x:Name="imageTabsControl">
+            <TabItem Header="imageTab1">
+                <Grid Background="#FFE5E5E5" >
+                    <dc:NImageControl />
+                </Grid>
+            </TabItem>
+            <TabItem Header="imageTab2">
+                <Grid Background="#FFE5E5E5" >
+                    <dc:NImageControl />
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>

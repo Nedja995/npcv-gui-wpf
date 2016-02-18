@@ -30,14 +30,16 @@ namespace NPGui
         {
             NPGui.NamedPipe np = new NPGui.NamedPipe();
 
+            NPGui.NpcvImage npImage = new NPGui.NpcvImage();
+        //    npImage.imageFileBytes = 
             byte[] by = np.Run();
 
             MemoryStream fs = new MemoryStream(by);
      //       BitmapImage bi = new BitmapImage()
 
          //   byte[] imageBytes = getJPGFromImageControl(MainImg.Source);
-          BitmapImage bi =   GetBitmapImage(by);
-            MainImg.Source = bi;
+            BitmapImage bi = GetBitmapImage(by);
+            //MainImg.Source = bi;
             //MemoryStream ms = new MemoryStream(;
 
 

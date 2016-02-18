@@ -55,7 +55,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\ImageOriginalControl.xaml.cs">
+      <DependentUpon>ImageOriginalControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NImageControl.xaml.cs">
+      <DependentUpon>NImageControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="utils\NamedPipe.cs" />
+    <Compile Include="utils\NpcvImage.cs" />
+    <Page Include="Controls\ImageOriginalControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NamedPipeWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

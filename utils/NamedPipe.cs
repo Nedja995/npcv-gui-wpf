@@ -55,6 +55,22 @@ namespace NPGui
                 _pipeServer.WaitForConnection();
                 Console.WriteLine("Client is connected.");
 
+                //
+                string message;
+
+                // 
+                // Send a response from server to client.
+                // 
+                message = "Matrix4x4";//ResponseMessage;
+                byte[] bResponse = Encoding.Unicode.GetBytes(message);
+                int cbResponse = bResponse.Length;
+
+                _pipeServer.Write(bResponse, 0, cbResponse);
+
+                Console.WriteLine("Send {0} bytes to client: \"{1}\"",
+                    cbResponse, message.TrimEnd('\0'));
+
+
                 // 
                 // Receive a request from client.
                 // 
@@ -65,9 +81,7 @@ namespace NPGui
                 // the pipe, or use StreamReader to read the pipe. You can read 
                 // more about the difference from the article:
                 // http://go.microsoft.com/?linkid=9721786.
-                // 
-                
-                string message;
+                //         
                 do
                 {
                     byte[] bRequest = new byte[_bufferSize];
@@ -84,18 +98,6 @@ namespace NPGui
                   //  Console.WriteLine("Receive {0} bytes from client: \"{1}\"",
                   //      cbRead, message);
                 } while (!_pipeServer.IsMessageComplete);
-
-                // 
-                // Send a response from server to client.
-                // 
-                message = ResponseMessage;
-                byte[] bResponse = Encoding.Unicode.GetBytes(message);
-                int cbResponse = bResponse.Length;
-
-                _pipeServer.Write(bResponse, 0, cbResponse);
-
-                Console.WriteLine("Send {0} bytes to client: \"{1}\"",
-                    cbResponse, message.TrimEnd('\0'));
 
                 // Flush the pipe to allow the client to read the pipe's contents 
                 // before disconnecting. Then disconnect the client's connection.
@@ -123,8 +125,8 @@ namespace NPGui
                     ret[i * 1024 + j] = image[i][j];
                 }
             }
-            return ret;
 
+            return ret;
         }
 
         protected const int _bufferSize = 1024;
