@@ -35,16 +35,24 @@ namespace NPGui.Controls
             byte[] imageBytes = getJPGFromImageControl(bit);
 
             // Message
-            string message = "REQUEST:{matrix}_PARAMS:{mWidth,mHeight,bias,factor,m0.0f,m0.1f,m1.0f,..}";//ResponseMessage;
-            byte[] messageBytes = Encoding.Unicode.GetBytes(message);
+            string message = "REQUEST:{matrix}_PARAMS:{3,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}";//ResponseMessage;
+            byte[] messageBytes = Encoding.ASCII.GetBytes(message);
+
+            //// PERFORMANCE ISSUE - BUG dirty fix - clear 0 from string
+            //bool zero = false;
+            
+            //foreach(byte b in messageBytes)
+            //{
+            //    if(zero)
+            //}
 
             // Request and datas byte array
             byte[] requestBytes = new byte[messageBytes.Length + imageBytes.Length];
             messageBytes.CopyTo(requestBytes, 0);
-            imageBytes.CopyTo(requestBytes, messageBytes.Length - 1);
+            imageBytes.CopyTo(requestBytes, messageBytes.Length);
 
             // Open pipe, send and recive
-            byte[] by = NPipeFilterImage(imageBytes);
+            byte[] by = NPipeFilterImage(requestBytes);
 
             // Make image from bytes array
             MemoryStream fs = new MemoryStream(by);
@@ -82,22 +90,22 @@ namespace NPGui.Controls
 
             // Set filter for file extension and default file extension 
             dlg.DefaultExt = ".png";
-            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            dlg.Filter = "JPG Files (*.jpg)|*.jpg|JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|GIF Files (*.gif)|*.gif";
 
 
             // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
+         //   Nullable<bool> result = dlg.ShowDialog();
             
 
             // Get the selected file name and display in a TextBox 
-            if (result == true)
-            {
-                // Open document 
-                string filename = dlg.FileName;
-                mainImage.Source = new BitmapImage(new Uri(dlg.FileName));
-            }
+            //if (result == true)
+            //{
+            //    // Open document 
+            //    string filename = dlg.FileName;
+            //    mainImage.Source = new BitmapImage(new Uri(dlg.FileName));
+            //}
+            mainImage.Source = new BitmapImage(new Uri("D:\\Projects\\CompVision\\npcv2\\samples\\data\\input\\lena.jpg"));
 
-            
 
         }
 
