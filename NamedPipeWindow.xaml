@@ -9,19 +9,13 @@
         Title="MainWindow" Height="486" Width="923"
         ResizeMode="CanResize">
     <Grid>
-        <Button x:Name="loadButton" Content="Load from Pipe" Click="loadButton_Click" HorizontalAlignment="Left" Margin="346,33,0,0" VerticalAlignment="Top" Width="123" Height="36" />
-        <Button x:Name="processButton" Content="Process" Click="processButton_Click" HorizontalAlignment="Left" Margin="346,96,0,0" VerticalAlignment="Top" Width="123" Height="35"/>
         <TabControl x:Name="imageTabsControl">
             <TabItem Header="imageTab1">
                 <Grid Background="#FFE5E5E5" >
-                    <dc:NImageControl />
+                    <dc:NImageControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />                  
                 </Grid>
             </TabItem>
-            <TabItem Header="imageTab2">
-                <Grid Background="#FFE5E5E5" >
-                    <dc:NImageControl />
-                </Grid>
-            </TabItem>
+        
         </TabControl>
 
     </Grid>

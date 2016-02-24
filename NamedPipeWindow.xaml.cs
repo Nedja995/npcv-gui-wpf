@@ -25,52 +25,5 @@ namespace NPGui
         {
             InitializeComponent();
         }
-
-        private void loadButton_Click(object sender, RoutedEventArgs e)
-        {
-            NPGui.NamedPipe np = new NPGui.NamedPipe();
-
-            NPGui.NpcvImage npImage = new NPGui.NpcvImage();
-        //    npImage.imageFileBytes = 
-            byte[] by = np.Run();
-
-            MemoryStream fs = new MemoryStream(by);
-     //       BitmapImage bi = new BitmapImage()
-
-         //   byte[] imageBytes = getJPGFromImageControl(MainImg.Source);
-            BitmapImage bi = GetBitmapImage(by);
-            //MainImg.Source = bi;
-            //MemoryStream ms = new MemoryStream(;
-
-
-        }
-
-        public static BitmapImage GetBitmapImage(byte[] imageBytes)
-        {
-            var bitmapImage = new BitmapImage();
-            bitmapImage.BeginInit();
-            bitmapImage.StreamSource = new MemoryStream(imageBytes);
-            bitmapImage.EndInit();
-            return bitmapImage;
-        }
-
-        public byte[] getJPGFromImageControl(ImageSource imageC)
-        {
-            MemoryStream memStream = new MemoryStream();
-            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-           // encoder.Frames.Add(BitmapFrame.Create(imageC));
-            encoder.Save(memStream);
-            return memStream.ToArray();
-        }
-
-        /// <summary>
-        /// Send image to npcv and then get processed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void processButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
