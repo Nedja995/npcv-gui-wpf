@@ -61,13 +61,29 @@
     <Compile Include="Controls\NImageControl.xaml.cs">
       <DependentUpon>NImageControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NPImageMatrix.xaml.cs">
+      <DependentUpon>NPImageMatrix.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NPipeImageControl.xaml.cs">
+      <DependentUpon>NPipeImageControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="utils\NamedPipe.cs" />
     <Compile Include="utils\NpcvImage.cs" />
+    <Compile Include="utils\NPipeMessages.cs" />
+    <Compile Include="utils\WPFImageUtils.cs" />
     <Page Include="Controls\ImageOriginalControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\NImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NPImageMatrix.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NPipeImageControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

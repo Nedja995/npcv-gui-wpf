@@ -9,31 +9,13 @@
     <Grid>
         <TabControl x:Name="imageTabsControl">
             <TabItem Header="Original">
-                <Grid Background="#FFE5E5E5" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <ScrollViewer HorizontalScrollBarVisibility="Visible" Grid.Row="1"  >
-                        <Image x:Name="mainImage"  />
-                        <!--Source="D:\Projects\CompVision\npcv2\samples\data\input\photo3.bmp" -->
-                    </ScrollViewer>
-
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="70" />
-                        </Grid.ColumnDefinitions>
-
-                        <!--<Button x:Name="browseBtn" Content="Browse" Click="browseBtn_Click" Grid.Column="0" />
-                        <Button x:Name="ResetBtn" Content="Reset" Click="ResetBtn_Click" Grid.Column="1" />
-                        <Button x:Name="ProcessBtn" Content="Process" Click="ProcessBtn_Click"  Grid.Column="2" />-->
-                    </Grid>
-                    <Button x:Name="processBtn" Content="Process" Click="processBtn_Click" HorizontalAlignment="Left" Margin="77,0,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button x:Name="browseBtn" Content="Browse" Click="browseBtn_Click" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" Width="75"/>
-                </Grid>
+                <local:NPipeImageControl x:Name="OriginalImage" />
             </TabItem>
+            <TabItem Header="Fitlered">
+                <local:NPImageMatrix x:Name="image"/>
+                
+            </TabItem>
+            
         </TabControl>
     </Grid>
 </UserControl>

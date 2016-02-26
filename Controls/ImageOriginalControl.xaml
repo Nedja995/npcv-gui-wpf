@@ -6,8 +6,5 @@
              xmlns:local="clr-namespace:ProjectVSNpcvGuiWpf.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="495,82,-315,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-
-    </Grid>
+    <Grid/>
 </UserControl>
