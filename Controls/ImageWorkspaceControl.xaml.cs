@@ -23,6 +23,29 @@ namespace NPGui.Controls
     /// </summary>
     public partial class ImageWorkspaceControl : UserControl
     {
+               
+    #region PROPERTIES
+    /*
+    * IMAGE NAME PROPERTY
+    */
+    public static readonly DependencyProperty ImageNameProperty = DependencyProperty.RegisterAttached("ImageName",
+                                                                 typeof(string), 
+                                                                 typeof(ImageWorkspaceControl),
+                                                                 new FrameworkPropertyMetadata(null));
+    public static string GetImageNameProperty(UIElement element)
+    {
+        if (element == null)
+            throw new ArgumentNullException("element");
+        return (string)element.GetValue(ImageNameProperty);
+    }
+    public static void SetImageNameProperty(UIElement element, string value)
+    {
+        if (element == null)
+            throw new ArgumentNullException("element");
+        element.SetValue(ImageNameProperty, value);
+    }
+    #endregion PROPERTIES
+
         public ImageWorkspaceControl()
         {
             InitializeComponent();

@@ -10,7 +10,7 @@
         <TabControl.Resources>
             <DataTemplate x:Key="TabHeader" DataType="TabItem">
                 <DockPanel>
-                    <Button Name="btnDelete" Content="-" DockPanel.Dock="Left" Width="15" Margin="0,-5,0,0" Padding="0" Click="btnDelete_Click" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Name}">
+                    <Button Name="btnDelete" Content="X" DockPanel.Dock="Left" Width="10" Height="10" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnDelete_Click" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Name}">
                     </Button>
                     <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Header}" />
                 </DockPanel>
