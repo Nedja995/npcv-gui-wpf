@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\DynamicTabsControl.xaml.cs">
+      <DependentUpon>DynamicTabsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Images\ImageNpcvControl.xaml.cs">
       <DependentUpon>ImageNpcvControl.xaml</DependentUpon>
     </Compile>
@@ -70,6 +73,10 @@
     <Compile Include="utils\NamedPipeNpcv.cs" />
     <Compile Include="utils\NPipeMessages.cs" />
     <Compile Include="utils\WPFImageUtils.cs" />
+    <Page Include="Controls\DynamicTabsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Images\ImageNpcvControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

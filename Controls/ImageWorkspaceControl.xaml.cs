@@ -32,9 +32,5 @@ namespace NPGui.Controls
         {
             //imageTabsControl.DataContext
         }
-
-
-
-     
     }
 }
