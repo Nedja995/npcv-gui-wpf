@@ -19,9 +19,9 @@ namespace NPGui
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class NamedPipeWindow : Window
+    public partial class MainWindow : Window
     {
-        public NamedPipeWindow()
+        public MainWindow()
         {
             InitializeComponent();
         }

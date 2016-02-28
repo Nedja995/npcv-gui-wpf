@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="NPGui.Controls.NPImageMatrix"
+﻿<UserControl x:Class="NPGui.Controls.Images.ImageMatrixControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:NPGui.Controls"
+             xmlns:local="clr-namespace:NPGui.Controls.Bridges"
+             xmlns:img="clr-namespace:NPGui.Controls.Images"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -13,7 +14,7 @@
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <!-- IMAGE -->
-            <local:NPipeImageControl x:Name="FilteredImage" Grid.Column="0" />
+            <img:ImageNpcvControl x:Name="FilteredImage" Grid.Column="0" />
             <!-- PARAMETARS -->
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>

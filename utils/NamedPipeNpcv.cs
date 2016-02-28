@@ -7,12 +7,17 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NPGui
+namespace NPGui.utils
 {
-    public class NamedPipe
+    class NamedPipeNpcv
     {
-
-        public byte[] Run()
+        /// <summary>
+        /// Send request with image and parametars.
+        /// And recive processed image
+        /// </summary>
+        /// <param name="request"><see cref="https://github.com/Nedja995/npcv2/docs/named-pipe.md"/></param>
+        /// <returns></returns>
+        public byte[] Process(byte[] request)
         {
             IList<byte[]> image = new List<byte[]>();
 
@@ -65,7 +70,7 @@ namespace NPGui
                 byte[] bResponse = Encoding.Unicode.GetBytes(message);
                 int cbResponse = bResponse.Length;
 
-                _pipeServer.Write(bResponse, 0, cbResponse);
+                _pipeServer.Write(request, 0, request.Length);
 
                 Console.WriteLine("Send {0} bytes to client: \"{1}\"",
                     cbResponse, message.TrimEnd('\0'));
@@ -95,8 +100,8 @@ namespace NPGui
                     // Unicode-encode the received byte array and trim all the 
                     // '\0' characters at the end.
                     message = Encoding.Unicode.GetString(bRequest).TrimEnd('\0');
-                  //  Console.WriteLine("Receive {0} bytes from client: \"{1}\"",
-                  //      cbRead, message);
+                    //  Console.WriteLine("Receive {0} bytes from client: \"{1}\"",
+                    //      cbRead, message);
                 } while (!_pipeServer.IsMessageComplete);
 
                 // Flush the pipe to allow the client to read the pipe's contents 
@@ -118,9 +123,9 @@ namespace NPGui
             }
 
             byte[] ret = new byte[image.Count * 1024];
-            for(int i = 0;i < image.Count; i++)
+            for (int i = 0; i < image.Count; i++)
             {
-                for(int j = 0; j < 1024; j++)
+                for (int j = 0; j < 1024; j++)
                 {
                     ret[i * 1024 + j] = image[i][j];
                 }
@@ -130,19 +135,14 @@ namespace NPGui
         }
 
         protected const int _bufferSize = 1024;
-
-        // Request message from client to server. '\0' is appended in the end 
-        // because the client may be a native C++ application that expects 
-        // NULL termiated string.
-        protected const string ResponseMessage = "Default response from server\0";
-
+        protected NamedPipeServerStream _pipeServer;
+        #region PIPE DATA
         // The full name of the pipe in the format of 
         // \\servername\pipe\pipename.
         protected const string ServerName = ".";
-        protected const string PipeName = "SamplePipe";
+        protected const string PipeName = "NpcvPipe";
         protected const string FullPipeName = @"\\" + ServerName + @"\pipe\" + PipeName;
-
-        protected NamedPipeServerStream _pipeServer;
+        #endregion PIPE DATA
 
         /// <summary>
         /// The CreateSystemIOPipeSecurity function creates a new PipeSecurity 
@@ -169,6 +169,5 @@ namespace NPGui
 
             return pipeSecurity;
         }
-
     }
 }

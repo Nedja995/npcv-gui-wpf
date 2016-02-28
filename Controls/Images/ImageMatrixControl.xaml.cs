@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NPGui.Controls
+namespace NPGui.Controls.Images
 {
     /// <summary>
     /// Interaction logic for NPImageMatrix.xaml
     /// </summary>
-    public partial class NPImageMatrix : UserControl
+    public partial class ImageMatrixControl : UserControl
     {
-        public NPImageMatrix()
+        public ImageMatrixControl()
         {
             InitializeComponent();
         }
@@ -53,12 +53,12 @@ namespace NPGui.Controls
             int mHeight = int.Parse(matHeightTxt.Text);
             float[] matrix = getMatrix();
 
-            byte[] req = NPipeMessage.MRApplyMatrix(FilteredImage.image.Source as BitmapImage,//image to process
+            byte[] req = NPipeMessage.MRApplyMatrix(FilteredImage.pipeImage.image.Source as BitmapImage,//image to process
                                                      factor,// factor
                                                      bias,       // bias
                                                      mWidth, mHeight,       //matrix width and height 
                                                      matrix);    //matrix float array
-            FilteredImage.Process(req);
+            FilteredImage.pipeImage.Process(req);
         }
     }
 }

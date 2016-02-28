@@ -19,11 +19,11 @@ using System.Windows.Shapes;
 namespace NPGui.Controls
 {
     /// <summary>
-    /// Interaction logic for NImageControl.xaml
+    /// Interaction logic for ImageWorkspaceControl.xaml
     /// </summary>
-    public partial class NImageControl : UserControl
+    public partial class ImageWorkspaceControl : UserControl
     {
-        public NImageControl()
+        public ImageWorkspaceControl()
         {
             InitializeComponent();
         }

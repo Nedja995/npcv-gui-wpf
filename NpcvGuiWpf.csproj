@@ -55,39 +55,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\ImageOriginalControl.xaml.cs">
-      <DependentUpon>ImageOriginalControl.xaml</DependentUpon>
+    <Compile Include="Controls\Images\ImageNpcvControl.xaml.cs">
+      <DependentUpon>ImageNpcvControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NImageControl.xaml.cs">
-      <DependentUpon>NImageControl.xaml</DependentUpon>
+    <Compile Include="Controls\ImageWorkspaceControl.xaml.cs">
+      <DependentUpon>ImageWorkspaceControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NPImageMatrix.xaml.cs">
-      <DependentUpon>NPImageMatrix.xaml</DependentUpon>
+    <Compile Include="Controls\Images\ImageMatrixControl.xaml.cs">
+      <DependentUpon>ImageMatrixControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NPipeImageControl.xaml.cs">
+    <Compile Include="Controls\Bridges\NPipeImageControl.xaml.cs">
       <DependentUpon>NPipeImageControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="utils\NamedPipe.cs" />
+    <Compile Include="utils\NamedPipeNpcv.cs" />
     <Compile Include="utils\NpcvImage.cs" />
     <Compile Include="utils\NPipeMessages.cs" />
     <Compile Include="utils\WPFImageUtils.cs" />
-    <Page Include="Controls\ImageOriginalControl.xaml">
+    <Page Include="Controls\Images\ImageNpcvControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\NImageControl.xaml">
+    <Page Include="Controls\ImageWorkspaceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\NPImageMatrix.xaml">
+    <Page Include="Controls\Images\ImageMatrixControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\NPipeImageControl.xaml">
+    <Page Include="Controls\Bridges\NPipeImageControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NamedPipeWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -95,8 +95,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="NamedPipeWindow.xaml.cs">
-      <DependentUpon>NamedPipeWindow.xaml</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -127,6 +127,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
