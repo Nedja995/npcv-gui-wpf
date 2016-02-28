@@ -9,6 +9,6 @@
         Title="MainWindow" Height="486" Width="923"
         ResizeMode="CanResize">
     <Grid>
-        <dc:DynamicTabsControl />
+        <dc:DynamicTabsControl Name="imageTabs" />
     </Grid>
 </Window>

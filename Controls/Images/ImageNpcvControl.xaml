@@ -31,7 +31,6 @@
                 </ComboBoxItem>
             </ComboBox>
         </Grid>
-
         <Button x:Name="browseBtn" Content="Browse" Click="browseBtn_Click" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>

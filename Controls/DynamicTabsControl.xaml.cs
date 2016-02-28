@@ -22,9 +22,12 @@ namespace NPGui.Controls
     {
         private List<TabItem> _tabItems;
         private TabItem _tabAdd;
+        public Type newTab = typeof(ImageWorkspaceControl);
 
         public DynamicTabsControl()
         {
+            newTab = typeof(ImageWorkspaceControl);
+
             try
             {
                 InitializeComponent();
@@ -38,8 +41,10 @@ namespace NPGui.Controls
 
                 _tabItems.Add(tabAdd);
 
+              
+
                 // add first tab
-                this.AddTabItem(new NPGui.Controls.ImageWorkspaceControl());
+                this.AddTabItem(newTab);
 
                 // bind tab control
                 tabDynamic.DataContext = _tabItems;
@@ -52,7 +57,7 @@ namespace NPGui.Controls
             }
         }
 
-        private TabItem AddTabItem(Control control)
+        private TabItem AddTabItem(Type control)
         {
             int count = _tabItems.Count;
 
@@ -63,7 +68,7 @@ namespace NPGui.Controls
             tab.HeaderTemplate = tabDynamic.FindResource("TabHeader") as DataTemplate;
 
             // add controls to tab item, this case I added just a textbox
-            var txt = control;// new TextBox();
+            var txt = (Control)Activator.CreateInstance(control);// new TextBox();
             txt.Name = "txt";
             tab.Content = txt;
 
@@ -84,7 +89,7 @@ namespace NPGui.Controls
                     tabDynamic.DataContext = null;
 
                     // add new tab
-                    TabItem newTab = this.AddTabItem(new NPGui.Controls.ImageWorkspaceControl());
+                    TabItem newTab = this.AddTabItem(this.newTab);
 
                     // bind tab control
                     tabDynamic.DataContext = _tabItems;
