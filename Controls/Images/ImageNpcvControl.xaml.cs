@@ -30,9 +30,29 @@ namespace NPGui.Controls.Images
         private void processBtn_Click(object sender, RoutedEventArgs e)
         {
 
-           // pipeImage.Process(req);
+            DynamicTabsControl workspace = FindParent<DynamicTabsControl>(this);
+            //    workspace.AddTabItem(typeof(ImageMatrixControl));
+            workspace.SetValue(DynamicTabsControl.NextTabCreateProperty, "NPGui.Controls.Images.ImageMatrixControl");
+            workspace.forceNew = true;
+            workspace.refresh();
+            // pipeImage.Process(req);
         }
 
+        public static T FindParent<T>(DependencyObject child) where T : DependencyObject
+        {
+            //get parent item
+            DependencyObject parentObject = VisualTreeHelper.GetParent(child);
+
+            //we've reached the end of the tree
+            if (parentObject == null) return null;
+
+            //check if the parent matches the type we're looking for
+            T parent = parentObject as T;
+            if (parent != null)
+                return parent;
+            else
+                return FindParent<T>(parentObject);
+        }
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
         }

@@ -20,14 +20,31 @@ namespace NPGui.Controls
     /// </summary>
     public partial class DynamicTabsControl : UserControl
     {
-        private List<TabItem> _tabItems;
-        private TabItem _tabAdd;
-        public Type newTab = typeof(ImageWorkspaceControl);
+        public List<TabItem> _tabItems;
+        //private TabItem _tabAdd;
+        //public Type newTab = typeof(TextBox);
+
+
+        public static readonly DependencyProperty NextTabCreateProperty = DependencyProperty.RegisterAttached("NextTabType",
+           typeof(string), typeof(DynamicTabsControl), new FrameworkPropertyMetadata(null));
+
+        public static string GetNextTabCreateProperty(UIElement element)
+        {
+            if (element == null)
+                throw new ArgumentNullException("element");
+            return (string)element.GetValue(NextTabCreateProperty);
+        }
+        public static void SetNextTabCreateProperty(UIElement element, string value)
+        {
+            if (element == null)
+                throw new ArgumentNullException("element");
+            element.SetValue(NextTabCreateProperty, value);
+        }
 
         public DynamicTabsControl()
         {
-            newTab = typeof(ImageWorkspaceControl);
-
+            // newTab = typeof(ImageWorkspaceControl);
+         
             try
             {
                 InitializeComponent();
@@ -41,12 +58,8 @@ namespace NPGui.Controls
 
                 _tabItems.Add(tabAdd);
 
-              
 
-                // add first tab
-                this.AddTabItem(newTab);
-
-                // bind tab control
+                //// bind tab control
                 tabDynamic.DataContext = _tabItems;
 
                 tabDynamic.SelectedIndex = 0;
@@ -57,7 +70,7 @@ namespace NPGui.Controls
             }
         }
 
-        private TabItem AddTabItem(Type control)
+        public TabItem AddTabItem(Type control)
         {
             int count = _tabItems.Count;
 
@@ -77,38 +90,9 @@ namespace NPGui.Controls
             return tab;
         }
 
-        private void tabDynamic_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void DeleteTab(string name)
         {
-            TabItem tab = tabDynamic.SelectedItem as TabItem;
-
-            if (tab != null && tab.Header != null)
-            {
-                if (tab.Header.Equals("+"))
-                {
-                    // clear tab control binding
-                    tabDynamic.DataContext = null;
-
-                    // add new tab
-                    TabItem newTab = this.AddTabItem(this.newTab);
-
-                    // bind tab control
-                    tabDynamic.DataContext = _tabItems;
-
-                    // select newly added tab item
-                    tabDynamic.SelectedItem = newTab;
-                }
-                else
-                {
-                    // your code here...
-                }
-            }
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-            string tabName = (sender as Button).CommandParameter.ToString();
-
-            var item = tabDynamic.Items.Cast<TabItem>().Where(i => i.Name.Equals(tabName)).SingleOrDefault();
+            var item = tabDynamic.Items.Cast<TabItem>().Where(i => i.Name.Equals(name)).SingleOrDefault();
 
             TabItem tab = item as TabItem;
 
@@ -140,6 +124,47 @@ namespace NPGui.Controls
                     tabDynamic.SelectedItem = selectedTab;
                 }
             }
+        }
+
+        private void tabDynamic_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            refresh();
+        }
+        public bool forceNew = false;
+        public void refresh()
+        {
+            TabItem tab = tabDynamic.SelectedItem as TabItem;
+
+            if (tab != null && tab.Header != null)
+            {
+                if (tab.Header.Equals("+") || forceNew)
+                {
+                    forceNew = false;
+                    // clear tab control binding
+                    tabDynamic.DataContext = null;
+
+                    string propV = (string)GetNextTabCreateProperty(this);
+                    Type t = Type.GetType(propV);
+                    // add new tab
+                    TabItem newTab = this.AddTabItem(t);
+
+                    // bind tab control
+                    tabDynamic.DataContext = _tabItems;
+
+                    // select newly added tab item
+                    tabDynamic.SelectedItem = newTab;
+                }
+                else
+                {
+                    // your code here...
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            string tabName = (sender as Button).CommandParameter.ToString();
+            DeleteTab(tabName);
         }
     }
 }

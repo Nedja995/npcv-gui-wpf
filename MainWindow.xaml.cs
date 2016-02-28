@@ -26,6 +26,10 @@ namespace NPGui
         {
 
             InitializeComponent();
+
+           // imageTabs.newTab = typeof(Controls.ImageWorkspaceControl);
+           // imageTabs.AddTabItem(typeof(Controls.ImageWorkspaceControl));
+          //  imageTabs.DeleteTab("tab1");
         }
     }
 }

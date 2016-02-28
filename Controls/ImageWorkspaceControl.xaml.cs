@@ -26,6 +26,8 @@ namespace NPGui.Controls
         public ImageWorkspaceControl()
         {
             InitializeComponent();
+
+           // ProcessingTabs.newTab = typeof(Images.ImageNpcvControl);
         }
 
         public void AddImage(BitmapImage image)

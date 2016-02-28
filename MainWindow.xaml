@@ -9,6 +9,6 @@
         Title="MainWindow" Height="486" Width="923"
         ResizeMode="CanResize">
     <Grid>
-        <dc:DynamicTabsControl Name="imageTabs" />
+        <dc:DynamicTabsControl x:Name="imageTabs" dc:DynamicTabsControl.NextTabCreateProperty="NPGui.Controls.ImageWorkspaceControl" />
     </Grid>
 </Window>
