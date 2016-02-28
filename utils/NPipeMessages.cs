@@ -10,8 +10,6 @@ namespace NPGui.utils
 {
     public static class NPipeMessage
     {
-    
-
         public static byte[] MakeRequestImageProcess(BitmapImage image, string processName, string parametars)
         {
             byte[] ret;

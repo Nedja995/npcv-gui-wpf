@@ -68,7 +68,6 @@
       <DependentUpon>NPipeImageControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="utils\NamedPipeNpcv.cs" />
-    <Compile Include="utils\NpcvImage.cs" />
     <Compile Include="utils\NPipeMessages.cs" />
     <Compile Include="utils\WPFImageUtils.cs" />
     <Page Include="Controls\Images\ImageNpcvControl.xaml">
