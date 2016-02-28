@@ -22,27 +22,11 @@
                         <Button x:Name="MatrixProcessBtn" Content="Matrix" Click="processBtn_Click" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75"/>
                     </ComboBoxItem>
                     <ComboBoxItem  x:Name="samplingItem">
-                        <Button x:Name="SamplingProcessBtn" Content="Sampling" Click="processBtn_Click" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75"/>
+                        <Button x:Name="SamplingProcessBtn" Content="Sampling" Click="samplingBtn_Click" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75"/>
                     </ComboBoxItem>
                 </ComboBox>
             </ToolBar>
         </ToolBarTray>
-        <!--<Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70" />
-                <ColumnDefinition Width="70" />
-                <ColumnDefinition Width="70" />
-            </Grid.ColumnDefinitions>
-            <ComboBox x:Name="comboBox" Text="Process" Grid.Column="2" Margin="19,2,-77,0" VerticalAlignment="Top" >
-                <ComboBoxItem  x:Name="matrixItem">
-                    <Button x:Name="MatrixProcessBtn" Content="Matrix" Click="processBtn_Click" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75"/>
-                </ComboBoxItem>
-                <ComboBoxItem  x:Name="samplingItem">
-                    <Button x:Name="SamplingProcessBtn" Content="Sampling" Click="processBtn_Click" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75"/>
-                </ComboBoxItem>
-            </ComboBox>
-            <Button x:Name="browseBtn" Content="Browse" Click="browseBtn_Click" HorizontalAlignment="Left" Margin="1,2,0,0" VerticalAlignment="Top" Width="52"/>
-            <Button x:Name="resetBtn" Content="Reset" Click="browseBtn_Click" HorizontalAlignment="Left" Margin="57,2,0,0" VerticalAlignment="Top" Width="47" Grid.ColumnSpan="2"/>-->
-        <!--</Grid>-->
         <br:NPipeImageControl x:Name="pipeImage" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1"/>
     </Grid>
 </UserControl>

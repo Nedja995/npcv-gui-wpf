@@ -49,6 +49,27 @@ namespace NPGui.Controls.Images
             workspace.AddNewTab(matrixImage);
         }
 
+        private void samplingBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (pipeImage.image.Source == null)
+            {
+                // No images
+                MessageBox.Show("No image!");
+                return;
+            }
+            // dlg1.ShowDialog();
+
+            DynamicTabsControl workspace = FindParent<DynamicTabsControl>(this);
+            ImageSampling samplingControl = new ImageSampling();
+
+            samplingControl.FilteredImage.pipeImage.image.Source = pipeImage.image.Source.Clone();
+            samplingControl.FilteredImage._originalImage = pipeImage.image.Source.Clone();
+
+            workspace.SetValue(DynamicTabsControl.NextTabNameProperty, "Matrix");
+
+            workspace.AddNewTab(samplingControl);
+        }
+
         public static T FindParent<T>(DependencyObject child) where T : DependencyObject
         {
             //get parent item
@@ -87,8 +108,8 @@ namespace NPGui.Controls.Images
             dlg.InitialDirectory = "D:\\Projects\\CompVision\\npcv2\\samples\\data\\input";
 
             // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
-
+            Nullable<bool> result =  dlg.ShowDialog();
+           // dlg.FileName = "D:\\Projects\\CompVision\\npcv2\\samples\\data\\input\\lena.jpg";
 
             //Get the selected file name and display in a TextBox
             if (result == true)

@@ -61,6 +61,9 @@
     <Compile Include="Controls\Images\ImageNpcvControl.xaml.cs">
       <DependentUpon>ImageNpcvControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Images\ImageSampling.xaml.cs">
+      <DependentUpon>ImageSampling.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ImageWorkspaceControl.xaml.cs">
       <DependentUpon>ImageWorkspaceControl.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Images\ImageNpcvControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Images\ImageSampling.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
