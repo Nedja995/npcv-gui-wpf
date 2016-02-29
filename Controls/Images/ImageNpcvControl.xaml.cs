@@ -105,7 +105,7 @@ namespace NPGui.Controls.Images
             // Set filter for file extension and default file extension 
             dlg.DefaultExt = ".png";
             dlg.Filter = "JPG Files (*.jpg)|*.jpg|JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|GIF Files (*.gif)|*.gif";
-            dlg.InitialDirectory = "D:\\Projects\\CompVision\\npcv2\\samples\\data\\input";
+          //  dlg.InitialDirectory = "D:\\Projects\\CompVision\\npcv2\\samples\\data\\input";
 
             // Display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result =  dlg.ShowDialog();
